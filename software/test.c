@@ -9,6 +9,7 @@ your hardware platform.
 
 #define ENCODER_ADDR XPAR_LVSS_ENCODER_BACKREF_0_BASEADDR
 
+//An extremely simple driver for the accelerator core
 uint32_t test_core(char *in, uint32_t in_len, char *out){
 	uint32_t out_len = 0;
 	volatile uint32_t *encoder = (uint32_t*)ENCODER_ADDR;
@@ -38,6 +39,7 @@ uint32_t test_core(char *in, uint32_t in_len, char *out){
 	return(out_len);
 }
 
+//The equivalent algorithm implemented relatively naively
 uint16_t test_software(char *data_in, uint32_t in_len, char *data_out){
 	uint32_t out_len = 0;
 	uint32_t i = 0;//Current byte being substituted
